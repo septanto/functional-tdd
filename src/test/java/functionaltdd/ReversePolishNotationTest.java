@@ -46,4 +46,19 @@ public class ReversePolishNotationTest {
     public void divideOperationReturnsCorrectValue() {
         assertThat(reversePolishNotation.compute("2 2 /")).isEqualTo(1);
     }
+
+    @Test
+    public void multipleAddOperationReturnCorrectValue() {
+        assertThat(reversePolishNotation.compute("1 2 5 + +")).isEqualTo(8);
+    }
+
+    @Test
+    public void multipleDifferentOperationsReturnCorrectValue() {
+        assertThat(reversePolishNotation.compute("5 12 + 3 -")).isEqualTo(14);
+    }
+
+    @Test
+    public void aComplexTest() {
+        assertThat(reversePolishNotation.compute("5 1 2 + 4 * + 3 -")).isEqualTo(14);
+    }
 }
